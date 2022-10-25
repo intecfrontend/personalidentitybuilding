@@ -12,19 +12,16 @@ import "@identitybuilding/idb-react-ui-elements/dist/styles/Colors.css";
 import './App.css';
 import './AppColors.css';
 
-// import Contact from "./pages/Contact";
-// import NoPage from "./pages/NoPage";
 
 export default function App() {
   return (
     <BrowserRouter>
-    
       <Routes>
         <Route>
           <Route exact path='/' element={<Home />} />
           <Route exact path="/search/" element={<Resultspage />} />
           <Route exact path="/search/:query" element={<Resultspage />} />
-          <Route exact path="/magazines/:id" element={<DetailsPage/>} />
+          <Route exact path="/magazines/:id" element={<DetailsPage />} />
           {/* <Route path="search/:query" element={welkom<Search />} />           */}
           {/* <Route exact path="/welkom" element={<Welkom/>} />
           <Route exact path="/consument" element={<Consument/>} />
