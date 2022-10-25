@@ -12,8 +12,8 @@ const breakPoints = [
   { width: 1, itemsToShow: 1 },
   { width: 500, itemsToShow: 2 },
   { width: 750, itemsToShow: 3 },
-  { width: 968, itemsToShow: 4 },
-  { width: 1100, itemsToShow: 5 },
+  { width: 1068, itemsToShow: 4 },
+  { width: 1300, itemsToShow: 5 },
 ];
 
 function ProductGallery() {

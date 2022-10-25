@@ -20,7 +20,6 @@ function DetailsPage(props) {
   };
   return (
     <div className="App">
-      <h1>{params.Id}</h1>
 
       {console.log("IDIDIDIDID4" + JSON.stringify(params.id))}
 
@@ -42,7 +41,8 @@ function DetailsPage(props) {
           </div>
 
           <div className="ONntwk__sidecardeswrap">
-            <MagazinesSideleft />
+            <MagazinesSideleft />     
+
             <MagazinesCardsContainer />
           </div>
         </div>
