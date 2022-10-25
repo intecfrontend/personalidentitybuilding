@@ -48,7 +48,7 @@ height: 100%;
 const Logowrapper = styled.div`
 width: 100%; 
 height: 130px; 
-padding-top: 1px;
+padding-top: 5px;
   display: flex; 
   justify-content: center;
 `;
@@ -70,7 +70,7 @@ function Resultspage(props) {
   };
 
   useEffect(() => {
-    let query = "identityBuilding"
+    let query = " "
     let options = {
       "from": 0,
       "size": 30,
@@ -492,6 +492,7 @@ function Resultspage(props) {
       })
       .then((res) => {
         let copy = []
+        console.log(res.data.hits)
         res.data.hits.hits.map((item) => {
 
           let newItem = {}
@@ -534,26 +535,25 @@ function Resultspage(props) {
           </div>
           {/* <FirmaCardsContainer /> */}
 
+          {data.map((item, index) => (
           <ItemBuitenBorder>
             <ItemBorder>
               <Logowrapper>
-                {data.map((item, index) => (
                   <div>
                     {console.log("item" + item)}
                     <Logo src={item.logos} alt="logoItem" />
                   </div>
-                ))}
               </Logowrapper>
 
 
-              <FirmaItemTitle>
+              /* <FirmaItemTitle>
                 {data.map((item, index) => (
                   <div>
                     {console.log("item" + item)}
                     {item.name}
                   </div>
                 ))}
-              </FirmaItemTitle>
+              </FirmaItemTitle> */
 
 
               <FirmaItemSubTitle>... magazines<br />... catalogi</FirmaItemSubTitle>
@@ -573,6 +573,8 @@ function Resultspage(props) {
 
             </ItemBorder>
           </ItemBuitenBorder>
+          ))}
+
         </div>
       </div>
     </div>
