@@ -1,0 +1,33 @@
+:root {
+  --blue: #1394d2;
+  --Lblue: rgba(30, 147, 210, 0.6);
+  --white: #ffffff;
+  --shadow: rgba(99, 99, 99, 0.2);
+  --boxshadow: rgba(99, 99, 99, 0.3) 2px 2px 8px 0px;
+}
+
+.CarouselFilterLine {
+  width: 100%;
+  margin-bottom: 30px;
+  border-bottom: grey 1px solid;
+}
+
+.CarouselFilterItem {
+  font-size: 12px;
+  color: var(--blue);
+  font-weight: 600;
+  width: 130px;
+  text-align: center;
+  height: 20px;
+  transition: all 0.5s;
+}
+.CarouselFilterItemActive {
+  border-bottom: 3px var(--blue) solid;
+}
+.CarouselFilterItem:hover {
+  border-bottom: 3px var(--Lblue) solid;
+  cursor: pointer;
+}
+.CarouselFilterItemwrapper {
+  display: flex;
+}
