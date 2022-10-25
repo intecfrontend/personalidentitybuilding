@@ -135,10 +135,12 @@
 }
 .ONntwk__btncont {
   border: var(--blue) solid 1px;
+  cursor: pointer;
 }
 .ONntwk__gaterug {
   color: var(--blue);
-  display: flex;; align-items: center;
+  display: flex;
+  align-items: center;
 }
 .ONntwk__btncontaanmelden {
   border: var(--blue) solid 1px;

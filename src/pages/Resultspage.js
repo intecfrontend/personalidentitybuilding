@@ -84,6 +84,7 @@ function Resultspage(props) {
     console.log('value is:', event.target.value);
   };
 
+
   useEffect(() => {
     let query = " "
     let options = {
@@ -529,6 +530,7 @@ function Resultspage(props) {
   }, [])
 
 
+
   return (
     <div className="App">
       <div className="ONntwk__main">
@@ -557,12 +559,13 @@ function Resultspage(props) {
                     <div>
 
                       <Logo src={item.logos.length > 0 ? item.logos[0] : robotface} alt="logoItem" />
+
                     </div>
                   </Logowrapper>
 
                   <FirmaItemTitle>
                     <FirmaItemText title={item.name}>
-                      {console.log(item)}
+                      {console.log("itemqqq" + JSON.stringify(item))}
 
                       {item.name}
                     </FirmaItemText>
@@ -576,13 +579,15 @@ function Resultspage(props) {
                     <div className="ONntwk__bluecardbtn ONntwk__btncont">
                       <div className="ONntwk__bluecardbtn ONntwk__regularbtn">VOLGEN </div>
                     </div>
-                    <div className="ONntwk__bluecardbtn ONntwk__btncont">
-                      <div className="ONntwk__bluecardbtn ONntwk__regularbtn">ONTDEK MEER
-                        <span>
-                          <img className="ONntwk__cornericon" src={cornericon} alt="cornericon" />
-                        </span>
+                    <Link to={`/magazines/${item.id}`}>
+                      <div className="ONntwk__bluecardbtn ONntwk__btncont">
+                        <div className="ONntwk__bluecardbtn ONntwk__regularbtn">ONTDEK MEER
+                          <span>
+                            <img className="ONntwk__cornericon" src={cornericon} alt="cornericon" />
+                          </span>
+                        </div>
                       </div>
-                    </div>
+                    </Link>
                   </div>
 
                 </ItemBorder>
@@ -591,7 +596,7 @@ function Resultspage(props) {
           </Main>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 
