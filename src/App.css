@@ -120,6 +120,8 @@
   width: 115px;
   font-weight: 600;
   background: white;
+  cursor: pointer;
+  z-index: 999;
 }
 .ONntwk__bluecardnobg {
   display: flex;

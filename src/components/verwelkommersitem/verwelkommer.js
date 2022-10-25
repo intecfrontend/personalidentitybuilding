@@ -120,7 +120,7 @@ font-weight: 400;
 color:   #1394d2;
 position: absolute;
 top: 2px;
-z-index: 999;
+z-index: 900;
 background: rgba(	241,	242,	242, 1);
 transition: ease 0.2s all;
 margin-left: 15px; padding: 0px 2px 0px 2px;
@@ -169,7 +169,6 @@ width: 20%
 `;
 const CloseX = styled.img`
 cursor: pointer;
-
 top: 2%;
 left: 92%;
 position: absolute;
@@ -177,13 +176,10 @@ width: 5%
 /* &:hover {scale: 10%} */
 `;
 
-function verwelkommer() {
+const Verwelkommer=({setOpen, open, children}) => {
   return (
-    <Container>
-      <CloseX src={closeX} alt="" />
-
-      <ONlogo src={ONnetwerklogo} alt="ONlogo" />
-
+    <Container onClick={() => setOpen(false)}>
+      <CloseX src={closeX} alt="closeX" onClick={() => setOpen(false)} />
       <TxtWrapper>
         WELKOM OP HET <Bluetxt> CATALOGUSNETWERK</Bluetxt>
       </TxtWrapper>
@@ -232,4 +228,4 @@ function verwelkommer() {
   )
 }
 
-export default verwelkommer
+export default Verwelkommer

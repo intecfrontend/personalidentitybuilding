@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 import ONcatnetwerklogo from "../assets/ONcatnetwerk.svg"
 import { Link } from 'react-router-dom'
 
 
-export default function header() {
+export default function Header() {
+  const [open, setOpen] = useState(false)
+
   return (
     <div>
       <div className="ONntk__header">
@@ -14,9 +16,9 @@ export default function header() {
           <div className="ONntwk__bluecardbtn ONntwk__btncont">
             <div className="ONntwk__bluecardbtn ONntwk__regularbtn">ALLE NETWERKEN </div>
           </div>
-          <Link to="/welkom" className="ONntwk__bluecardbtn ONntwk__btncontaanmelden">
-            <div className="ONntwk__bluecardbtn ONntwk__regularbtn">AANMELDEN</div>
-          </Link>
+          <div className="ONntwk__bluecardbtn ONntwk__btncontaanmelden">
+            <div onClick={open => setOpen(true)} className="ONntwk__bluecardbtn ONntwk__regularbtn">AANMELDEN</div>
+          </div>
           <select className="ONntwk__bluecardbtn ONntwk__taalbtn">
             <option style={{ color: "pink" }} className="ONntwk__taalOptie" value="NL">NL</option>
             <option className="ONntwk__taalOptie" value="FR">FR</option>
