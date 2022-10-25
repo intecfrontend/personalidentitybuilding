@@ -4,14 +4,57 @@ import { Link } from 'react-router-dom'
 import HeaderInput from '../components/headerInput';
 import axios from 'axios'
 import styled from 'styled-components';
+// import LogoItem from "../Firmalogos/KruidvatLogo.png"
+import cornericon from "../components/FirmaItems/cornericon.svg"
 import FirmaCardsContainer from '../components/FirmaItems/Item-firmaLogoCont'
 
+const ItemBuitenBorder = styled.div`
+     border-radius: 5px;
+     width: 300px;
+      height: 320px;
+      display: flex;
+      justify-content: center;
+      align-items: center;      
+      transition: all .5s;
+      &:hover {transform: scale(1.06);}
+`;
+const ItemBorder = styled.div`
+     Border: rgba(99, 99, 99, 0.2) 1px solid;
+     border-radius: 5px;
+     width: 250px;
+      height: 270px;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      box-shadow: rgba(99, 99, 99, 0.3) 2px 2px 8px 0px;
+background: white;
 
+  
+`;
 const FirmaItemTitle = styled.div`
   font-size: 14px;
   font-weight: 600;
   margin: 30px 0px 0px 30px
 `;
+const FirmaItemSubTitle = styled.div`
+  font-size: 12px;
+  font-weight: 600;
+  margin: 10px 0px 10px 30px
+`;
+const Logo = styled.img`
+height: 100%;
+  width: auto
+`;
+const Logowrapper = styled.div`
+width: 100%; 
+height: 130px; 
+padding-top: 1px;
+  display: flex; 
+  justify-content: center;
+`;
+
+
+
 
 function Resultspage(props) {
   const [BladQuery, setBladQuery] = useState('');
@@ -452,7 +495,7 @@ function Resultspage(props) {
         res.data.hits.hits.map((item) => {
 
           let newItem = {}
-            newItem.name = item._source[`name_${lang}`] || item._source.name_nl || item._source.name_fr || item._source.name_de || item._source.name_en
+          newItem.name = item._source[`name_${lang}`] || item._source.name_nl || item._source.name_fr || item._source.name_de || item._source.name_en
           newItem.logos = []
 
           item._source.logolinks.map((logo) => {
@@ -464,7 +507,7 @@ function Resultspage(props) {
           copy.push(newItem)
         })
 
-        setData(copy); 
+        setData(copy);
       })
 
   }, [])
@@ -490,28 +533,46 @@ function Resultspage(props) {
             </Link>
           </div>
           {/* <FirmaCardsContainer /> */}
-          <div className='card_wrapper'>
-            {data.map((item, index) => (
-              <div>
-                {console.log("item" + item)}
-                /* <FirmaItemTitle>{item.name}</FirmaItemTitle> */
+
+          <ItemBuitenBorder>
+            <ItemBorder>
+              <Logowrapper>
+                {data.map((item, index) => (
+                  <div>
+                    {console.log("item" + item)}
+                    <Logo src={item.logos} alt="logoItem" />
+                  </div>
+                ))}
+              </Logowrapper>
+
+
+              <FirmaItemTitle>
+                {data.map((item, index) => (
+                  <div>
+                    {console.log("item" + item)}
+                    {item.name}
+                  </div>
+                ))}
+              </FirmaItemTitle>
+
+
+              <FirmaItemSubTitle>... magazines<br />... catalogi</FirmaItemSubTitle>
+
+              <div className="ONntwk__buttonwrapper ">
+                <div className="ONntwk__bluecardbtn ONntwk__btncont">
+                  <div className="ONntwk__bluecardbtn ONntwk__regularbtn">VOLGEN </div>
+                </div>
+                <div className="ONntwk__bluecardbtn ONntwk__btncont">
+                  <div className="ONntwk__bluecardbtn ONntwk__regularbtn">ONTDEK MEER
+                    <span>
+                      <img className="ONntwk__cornericon" src={cornericon} alt="cornericon" />
+                    </span>
+                  </div>
+                </div>
               </div>
 
-            ))}
-          </div>
-          <div className='card_wrapper'>
-            {data.map((item, index) => (
-              <div>
-                {console.log("item" + item)}
-
-                <img src={item.logos} alt="{item.logos}" />
-
-                {item.logos}
-                
-              </div>
-
-            ))}
-          </div>
+            </ItemBorder>
+          </ItemBuitenBorder>
         </div>
       </div>
     </div>
