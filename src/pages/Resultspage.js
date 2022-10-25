@@ -6,8 +6,18 @@ import axios from 'axios'
 import styled from 'styled-components';
 // import LogoItem from "../Firmalogos/KruidvatLogo.png"
 import cornericon from "../components/FirmaItems/cornericon.svg"
+import robotface from "./robotface.png"
 import FirmaCardsContainer from '../components/FirmaItems/Item-firmaLogoCont'
 
+const Main = styled.div`
+      width: 95vw;
+      height: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      justify-content: center;
+      gap: 10px
+`;
 const ItemBuitenBorder = styled.div`
      border-radius: 5px;
      width: 300px;
@@ -36,6 +46,11 @@ const FirmaItemTitle = styled.div`
   font-weight: 600;
   margin: 30px 0px 0px 30px
 `;
+const FirmaItemText = styled.div`
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+`;
 const FirmaItemSubTitle = styled.div`
   font-size: 12px;
   font-weight: 600;
@@ -60,7 +75,7 @@ function Resultspage(props) {
   const [BladQuery, setBladQuery] = useState('');
   const bladQuery = props.BladQuery;
   const ondertxt = props.ondertxt;
-  const [data, setData] = useState(['name', 'name', 'name'])
+  const [data, setData] = useState([])
   // const [ondertxt, setOndertxt] = useState('Parent')
   let lang = 'nl'
 
@@ -492,12 +507,12 @@ function Resultspage(props) {
       })
       .then((res) => {
         let copy = []
-        console.log(res.data.hits)
         res.data.hits.hits.map((item) => {
 
           let newItem = {}
           newItem.name = item._source[`name_${lang}`] || item._source.name_nl || item._source.name_fr || item._source.name_de || item._source.name_en
           newItem.logos = []
+          newItem.id = item._source.search_id
 
           item._source.logolinks.map((logo) => {
 
@@ -533,48 +548,47 @@ function Resultspage(props) {
               <img src={searchIcon} alt="searchIcon" className="Nntwk__searchIcon" />
             </Link>
           </div>
-          {/* <FirmaCardsContainer /> */}
+          <Main>
 
-          {data.map((item, index) => (
-          <ItemBuitenBorder>
-            <ItemBorder>
-              <Logowrapper>
-                  <div>
-                    {console.log("item" + item)}
-                    <Logo src={item.logos} alt="logoItem" />
+            {data.map((item, index) => (
+              <ItemBuitenBorder>
+                <ItemBorder>
+                  <Logowrapper>
+                    <div>
+
+                      <Logo src={item.logos.length > 0 ? item.logos[0] : robotface} alt="logoItem" />
+                    </div>
+                  </Logowrapper>
+
+                  <FirmaItemTitle>
+                    <FirmaItemText title={item.name}>
+                      {console.log(item)}
+
+                      {item.name}
+                    </FirmaItemText>
+
+                  </FirmaItemTitle>
+
+
+                  <FirmaItemSubTitle>... magazines<br />... catalogi</FirmaItemSubTitle>
+
+                  <div className="ONntwk__buttonwrapper ">
+                    <div className="ONntwk__bluecardbtn ONntwk__btncont">
+                      <div className="ONntwk__bluecardbtn ONntwk__regularbtn">VOLGEN </div>
+                    </div>
+                    <div className="ONntwk__bluecardbtn ONntwk__btncont">
+                      <div className="ONntwk__bluecardbtn ONntwk__regularbtn">ONTDEK MEER
+                        <span>
+                          <img className="ONntwk__cornericon" src={cornericon} alt="cornericon" />
+                        </span>
+                      </div>
+                    </div>
                   </div>
-              </Logowrapper>
 
-
-              /* <FirmaItemTitle>
-                {data.map((item, index) => (
-                  <div>
-                    {console.log("item" + item)}
-                    {item.name}
-                  </div>
-                ))}
-              </FirmaItemTitle> */
-
-
-              <FirmaItemSubTitle>... magazines<br />... catalogi</FirmaItemSubTitle>
-
-              <div className="ONntwk__buttonwrapper ">
-                <div className="ONntwk__bluecardbtn ONntwk__btncont">
-                  <div className="ONntwk__bluecardbtn ONntwk__regularbtn">VOLGEN </div>
-                </div>
-                <div className="ONntwk__bluecardbtn ONntwk__btncont">
-                  <div className="ONntwk__bluecardbtn ONntwk__regularbtn">ONTDEK MEER
-                    <span>
-                      <img className="ONntwk__cornericon" src={cornericon} alt="cornericon" />
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-            </ItemBorder>
-          </ItemBuitenBorder>
-          ))}
-
+                </ItemBorder>
+              </ItemBuitenBorder>
+            ))}
+          </Main>
         </div>
       </div>
     </div>
