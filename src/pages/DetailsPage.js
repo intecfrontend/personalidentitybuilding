@@ -1,22 +1,29 @@
 import React, { useState } from 'react'
 import searchIcon from "../assets/search.png"
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import HeaderInput from '../components/headerInput';
 import MagazinesCardsContainer from '../components/MagazineItems/Item-magazineCont'
 import MagazinesSideleft from '../components/MagazineItems/MagazinesSideleft'
 
-function DetailsPage(props) {  const [BladQuery, setBladQuery] = useState('');
-const bladQuery = props.BladQuery;
-const ondertxt = props.ondertxt;
-// const [ondertxt, setOndertxt] = useState('Parent')
-const handleChange = event => {
-  setBladQuery(event.target.value);
+function DetailsPage(props) {
+  const [BladQuery, setBladQuery] = useState('');
+  const params = useParams();
 
-  console.log('value is:', event.target.value);
-  console.log('value2 is:' + BladQuery);
-};
+  const bladQuery = props.BladQuery;
+  const ondertxt = props.ondertxt;
+  // const [ondertxt, setOndertxt] = useState('Parent')
+  const handleChange = event => {
+    setBladQuery(event.target.value);
+
+    console.log('value is:', event.target.value);
+    console.log('value2 is:' + BladQuery);
+  };
   return (
     <div className="App">
+      <h1>{params.Id}</h1>
+
+      {console.log("IDIDIDIDID4" + JSON.stringify(params.id))}
+
       <div className="ONntwk__main">
         <div className="ONntwk__mainVertical ">
           <HeaderInput />
