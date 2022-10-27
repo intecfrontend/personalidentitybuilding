@@ -24,6 +24,7 @@ export default function App() {
           <Route exact path='/' element={<Home />} />
           <Route exact path="/search/" element={<Resultspage />} />
           <Route exact path="/search/:query" element={<Resultspage />} />
+          <Route exact path="/magazines" element={<DetailsPage/>} />
           <Route exact path="/magazines/:id" element={<DetailsPage/>} />
           {/* <Route path="search/:query" element={welkom<Search />} />           */}
           {/* <Route exact path="/welkom" element={<Welkom/>} />
