@@ -69,8 +69,9 @@
 }
 .ONntwk__lightblueWelcomeCoverAbsolute {
   position: absolute;
-  filter: blur(2px);
-  -webkit-filter: blur(2px);
+
+  filter: blur(0px);
+  -webkit-filter: blur(0px);
   top: 65px;
   width: 100vw;
   height: calc(100vh - 60px);
@@ -121,7 +122,7 @@
   font-weight: 600;
   background: white;
   cursor: pointer;
-  z-index: 999;
+  z-index: 990;
 }
 .ONntwk__bluecardnobg {
   display: flex;
@@ -411,5 +412,5 @@ button.rec-dot:hover, button.rec-dot:active, button.rec-dot:focus  {
   position: absolute;
 }
 .ONntwk__modal {
-  z-index: 999!important;
+  z-index: 999 !important;
 }

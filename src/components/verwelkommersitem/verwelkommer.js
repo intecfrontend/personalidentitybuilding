@@ -24,6 +24,7 @@ const Bluetxt = styled.span`
 color:   #1394d2;
 margin-left: 7px
 `;
+
 const ONlogo = styled.img`
 width: 100px;
 margin-top:20px;
@@ -176,20 +177,24 @@ width: 5%
 /* &:hover {scale: 10%} */
 `;
 
-const Verwelkommer=({setOpen, open, children}) => {
+const Verwelkommer = ({ setOpenModal, setOpenConsuModal, setOpen, open, children }) => {
   return (
-    <Container onClick={() => setOpen(false)}>
-      <CloseX src={closeX} alt="closeX" onClick={() => setOpen(false)} />
+    <Container
+    /* onClick={() => {setOpenModal(false);}} */
+    >
+    <ONlogo src={ONnetwerklogo} alt="ONlogo" />
+
+      <CloseX onClick={() => { setOpenModal(false); }} src={closeX} alt="closeX" />
       <TxtWrapper>
         WELKOM OP HET <Bluetxt> CATALOGUSNETWERK</Bluetxt>
       </TxtWrapper>
       <BtnWrapper>
-        <Link to="/ondernemermag">
+        
           <BlueBtn>IK BEN ONDERNEMER </BlueBtn>
-        </Link>
-        <Link to="/consumentmag">
-          <WhiteBtn>IK BEN CONSUMENT</WhiteBtn>
-        </Link>
+      
+
+          <WhiteBtn onClick={() => { setOpenModal(false); setOpenConsuModal(true); }} >IK BEN CONSUMENT</WhiteBtn>
+
       </BtnWrapper>
 
       <InputWrapper>

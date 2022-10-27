@@ -1,13 +1,16 @@
 import React from 'react'
 import styled from 'styled-components';
 import ONnetwerklogo from "../../assets/ONnetwerk.svg"
-import eyes from "./eyeIcon.svg"
+import eyes from "./eyeIcon.svg";
+import closeX from "./closeX.svg"
+
 
 
 const Container = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
+position: absolute;
 width: 500px;
 height: 700px;
 margin: 40px 0px 0px 0px;
@@ -21,6 +24,7 @@ const Bluetxt = styled.span`
 color:   #1394d2;
 margin-left: 7px
 `;
+
 const ONlogo = styled.img`
 width: 100px;
 margin-top:20px;
@@ -164,17 +168,33 @@ left: 77%;
 position: absolute;
 width: 20%
 `;
-
-function verwelkommer() {
+const CloseX = styled.img`
+cursor: pointer;
+top: 2%;
+left: 92%;
+position: absolute;
+width: 5%
+/* &:hover {scale: 10%} */
+`;
+function welkomconsument({setOpenConsuModal, setOpenModal}) {
   return (
     <Container>
-      <ONlogo src={ONnetwerklogo} alt="ONlogo" />
+    <ONlogo src={ONnetwerklogo} alt="ONlogo" />
+      <CloseX onClick={() => { setOpenConsuModal(false); }} src={closeX} alt="closeX" />
 
       <TxtWrapper>
         WELKOM OP HET <Bluetxt> CATALOGUSNETWERK</Bluetxt>
       </TxtWrapper>
 
-      <BtnWrapper>
+
+
+
+
+      <BtnWrapper onClick={() => { setOpenConsuModal(false); setOpenModal(true); }}>
+
+
+
+
         <WhiteBtn>IK BEN ONDERNEMER</WhiteBtn> <BlueBtn>IK BEN CONSUMENT</BlueBtn>
       </BtnWrapper>
 
@@ -207,4 +227,4 @@ function verwelkommer() {
   )
 }
 
-export default verwelkommer
+export default welkomconsument

@@ -18,14 +18,18 @@ import './AppColors.css';
 export default function App() {
   return (
     <BrowserRouter>
-    
+
       <Routes>
         <Route>
           <Route exact path='/' element={<Home />} />
           <Route exact path="/search/" element={<Resultspage />} />
           <Route exact path="/search/:query" element={<Resultspage />} />
-          <Route exact path="/magazines" element={<DetailsPage/>} />
-          <Route exact path="/magazines/:id" element={<DetailsPage/>} />
+          <Route exact path="/magazines" element={<DetailsPage />} />
+          <Route exact path="/magazines/:id" element={<DetailsPage />} />
+          <Route exact path="/consumentmag" element={<Consumentmag />} />     
+               <Route exact path="/consument" element={<Consument />} />
+
+
           {/* <Route path="search/:query" element={welkom<Search />} />           */}
           {/* <Route exact path="/welkom" element={<Welkom/>} />
           <Route exact path="/consument" element={<Consument/>} />
